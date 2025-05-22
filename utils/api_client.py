@@ -25,12 +25,7 @@ class ApiClient:
     def get_booking(self, booking_id):
         url = f"{self.base_url}/booking/{booking_id}"
         log.info(f"GET {url}")
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-        except requests.RequestException as e:
-            log.error(f"Request to {url} failed: {e}")
-            raise
+        response = requests.get(url)
         allure.attach(response.text, name="get_booking_response", attachment_type=allure.attachment_type.JSON)
         return response
 

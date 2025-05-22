@@ -1,9 +1,5 @@
-import time
-
-import pytest
 import allure
 import logging
-import requests
 from utils.data_fixtures import booking_data
 
 log = logging.getLogger(__name__)
@@ -52,19 +48,9 @@ class TestBookings:
     @allure.tag("api", "delete", "booking")
     def test_delete_booking(self, api_client, auth_token, booking_data):
         booking_id = api_client.create_booking(booking_data).json()["bookingid"]
+
         response = api_client.delete_booking(booking_id, auth_token)
         assert response.status_code == 201
 
-        for _ in range(5):
-            try:
-                response = api_client.get_booking(booking_id)
-                if response.status_code == 404:
-                    return  # deletion confirmed
-                response.raise_for_status()
-            except requests.HTTPError as e:
-                if e.response.status_code == 404:
-                    return  # deletion confirmed
-                raise
-            time.sleep(1)
-
-        pytest.fail(f"Booking ID {booking_id} was not deleted after retries")
+        response = api_client.get_booking(booking_id)
+        assert response.status_code == 404
