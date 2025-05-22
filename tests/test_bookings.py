@@ -54,14 +54,13 @@ class TestBookings:
         booking_id = api_client.create_booking(booking_data).json()["bookingid"]
         response = api_client.delete_booking(booking_id, auth_token)
         assert response.status_code == 201
-
         for _ in range(5):
             try:
                 api_client.get_booking(booking_id).raise_for_status()
             except requests.HTTPError as e:
                 if e.response.status_code == 404:
-                    break
+                    return  # success: deleted
                 raise
             time.sleep(1)
-        else:
-            pytest.fail("Expected 404 after deletion but booking still exists")
+
+        pytest.fail(f"Booking ID {booking_id} was not deleted after retries")
