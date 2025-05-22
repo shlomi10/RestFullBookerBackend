@@ -1,1 +1,0 @@
-ERROR    utils.api_client:api_client.py:32 Request to https://restful-booker.herokuapp.com/booking/3032 failed: 404 Client Error: Not Found for url: https://restful-booker.herokuapp.com/booking/3032
