@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu May 22 12:26:32 UTC 2025","Thu May 22 12:26:32 UTC 2025","38","tests","Restful Booker API Tests","TestBookings","","","Create a new booking","This test verifies the ability to create a new booking using the POST /booking endpoint."
+"passed","Thu May 22 12:26:32 UTC 2025","Thu May 22 12:26:32 UTC 2025","236","tests","Restful Booker API Tests","TestBookings","","","Delete a booking","This test confirms that a booking can be deleted and that it returns 404 after deletion."
+"passed","Thu May 22 12:26:32 UTC 2025","Thu May 22 12:26:32 UTC 2025","49","tests","Restful Booker API Tests","TestBookings","","","Retrieve booking by ID","This test checks whether a booking can be retrieved by its ID using GET /booking/{id}."
+"passed","Thu May 22 12:26:32 UTC 2025","Thu May 22 12:26:32 UTC 2025","59","tests","Restful Booker API Tests","TestBookings","","","Update an existing booking","This test ensures that an existing booking can be updated using PUT /booking/{id}."
