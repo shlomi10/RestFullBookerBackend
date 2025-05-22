@@ -62,7 +62,7 @@ RestfullBookerBackend/
 
 ```bash
 git clone https://github.com/shlomi10/RestFullBookerBackend.git
-cd restfulbooker-api-tests
+cd restfullBookerBackend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
@@ -113,7 +113,7 @@ docker compose run --rm api-tests pytest tests/test_orders.py::test_create_order
 
 ## 🔄 CI/CD Pipeline
 
-- GitHub Actions runs on push/PR to `main`
+- GitHub Actions runs on push/PR to `main` or manually
 - Generates Allure report
 - Publishes report to GitHub Pages
 
