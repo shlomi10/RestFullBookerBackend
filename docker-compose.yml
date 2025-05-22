@@ -9,7 +9,7 @@ services:
       - ./tests:/app/tests:ro
       - ./utils:/app/utils:ro
       - ./requirements.txt:/app/requirements.txt:ro
-      - allure-results:/app/allure-results
+      - ./allure-results:/app/allure-results
     environment:
       BASE_URL: ${BASE_URL:-https://restful-booker.herokuapp.com}
       ADMIN_USER: ${ADMIN_USER:-admin}
@@ -28,7 +28,7 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - allure-results:/app/allure-results
+      - ./allure-results:/app/allure-results
     environment:
       CHECK_RESULTS_EVERY_SECONDS: 3
       KEEP_HISTORY: 25
@@ -43,6 +43,3 @@ services:
       - allure
     environment:
       ALLURE_DOCKER_SERVICE_URL: http://allure:5050
-
-volumes:
-  allure-results:
