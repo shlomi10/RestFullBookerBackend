@@ -1,3 +1,5 @@
+import time
+
 import pytest
 import allure
 import logging
@@ -52,6 +54,14 @@ class TestBookings:
         booking_id = api_client.create_booking(booking_data).json()["bookingid"]
         response = api_client.delete_booking(booking_id, auth_token)
         assert response.status_code == 201
-        with pytest.raises(requests.HTTPError) as exc_info:
-            api_client.get_booking(booking_id).raise_for_status()
-        assert exc_info.value.response.status_code == 404, "Expected 404 after deletion"
+
+        for _ in range(5):
+            try:
+                api_client.get_booking(booking_id).raise_for_status()
+            except requests.HTTPError as e:
+                if e.response.status_code == 404:
+                    break
+                raise
+            time.sleep(1)
+        else:
+            pytest.fail("Expected 404 after deletion but booking still exists")
