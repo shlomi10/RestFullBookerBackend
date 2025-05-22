@@ -1,0 +1,6 @@
+allure_python_commons
+pytest
+pytest-html-reporter
+allure-pytest
+python-dotenv
+requests

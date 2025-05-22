@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  api-tests:
+    build:
+      context: .
+    container_name: api-tests
+    volumes:
+      - ./tests:/app/tests:ro
+      - ./utils:/app/utils:ro
+      - ./requirements.txt:/app/requirements.txt:ro
+      - allure-results:/app/allure-results
+    environment:
+      BASE_URL: ${BASE_URL:-https://restful-booker.herokuapp.com}
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PW: ${ADMIN_PW:-password123}
+    depends_on:
+      - allure
+    command: >
+      pytest tests/
+      --alluredir=allure-results
+      --clean-alluredir
+      -v
+
+  allure:
+    image: frankescobar/allure-docker-service:latest
+    container_name: allure-server
+    ports:
+      - "5050:5050"
+    volumes:
+      - allure-results:/app/allure-results
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 3
+      KEEP_HISTORY: 25
+      KEEP_HISTORY_LATEST: 25
+
+  allure-ui:
+    image: frankescobar/allure-docker-service-ui:latest
+    container_name: allure-ui
+    ports:
+      - "5252:5252"
+    depends_on:
+      - allure
+    environment:
+      ALLURE_DOCKER_SERVICE_URL: http://allure:5050
+
+volumes:
+  allure-results:
