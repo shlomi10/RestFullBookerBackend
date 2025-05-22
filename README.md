@@ -1,10 +1,12 @@
-# Restful Booker API Tests 🏨
+# Restfull Booker API Tests 🏨
 
 [![Allure](https://img.shields.io/badge/Allure-2.27.0-yellow.svg?style=for-the-badge&logo=allure&logoColor=black)](https://github.com/allure-framework/allure2)
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Pytest](https://img.shields.io/badge/Pytest-8.3.5-green.svg?style=for-the-badge&logo=pytest&logoColor=white)](https://docs.pytest.org/)
-[![Docker](https://img.shields.io/badge/Docker-24.0.5-blue.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Automation-purple.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![Pytest](https://img.shields.io/badge/Pytest-Test_Framework-green.svg?style=for-the-badge&logo=pytest)](https://docs.pytest.org/)
+[![Allure](https://img.shields.io/badge/Allure-Reports-orange.svg?style=for-the-badge&logo=allure)](https://docs.qameta.io/allure/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg?style=for-the-badge&logo=docker)](https://docs.docker.com/compose/)
+[![CI Build](https://img.shields.io/github/actions/workflow/status/shlomi10/RestFullBookerBackend/api-tests.yml?label=CI%20Build&style=for-the-badge&logo=github-actions)](https://github.com/shlomi10/RestFullBookerBackend/actions/workflows/api-tests.yml)
+[![Allure Report](https://img.shields.io/badge/Allure%20Report-View%20Live-purple?style=for-the-badge&logo=github)](https://shlomi10.github.io/RestFullBookerBackend/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&logo=license)](LICENSE)
 
 ---
